@@ -12,6 +12,8 @@ async function bootstrap() {
     .addTag('nest.js') /// 标签
     .addBearerAuth() // jwt身份验证
     .build()
+    // 支持跨域
+    app.enableCors()
   const document = SwaggerModule.createDocument(app, options)
   SwaggerModule.setup('api-docs', app, document)
   await app.listen(3001)

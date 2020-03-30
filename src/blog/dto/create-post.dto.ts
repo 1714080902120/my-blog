@@ -4,5 +4,10 @@ export class CreatePostDTO {
   readonly description: string;
   readonly body: string;
   readonly author: string;
-  readonly date_posted: string
+  readonly date_posted: string;
+}
+
+export class QueryType {
+  readonly skip: Number;
+  readonly limit: Number;
 }
