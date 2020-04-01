@@ -10,8 +10,8 @@ export class BlogService {
   constructor(@InjectModel('Post') private readonly postModel: Model<Post>) {}
 
   // 分页获取所有数据
-  async getPosts(s: Number = 0, l: Number = 10, mod: Model<Post> = this.postModel): Promise<Post[]> {
-    const posts = await mod.find().skip(s).limit(l).exec()
+  async getPosts(s: Number = 0, l: Number = 10): Promise<Post[]> {
+    const posts = await this.postModel.find().skip(s).limit(l).exec()
     return posts
   }
 
@@ -25,8 +25,8 @@ export class BlogService {
   }
   
   // 获取单个ID
-  async getPostById (postId: String, mod: Model<Post> = this.postModel): Promise<Post> {
-    const post = await mod.findById(postId).exec()
+  async getPostById (postId: String): Promise<Post> {
+    const post = await this.postModel.findById(postId).exec()
     return post
   }
 

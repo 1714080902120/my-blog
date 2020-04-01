@@ -2,7 +2,7 @@ import { QueryType, CreatePostDTO } from './dto/create-post.dto'
 import { BlogService } from './blog.service'
 import { Controller, Get, Res, HttpStatus, Query, Param, NotFoundException, Post, Body, Put, Delete } from '@nestjs/common'
 import { ValidateObjectId } from './shared/pipes/validate-object-id.pipes'
-import { ApiTags, ApiOperation, ApiQuery } from '@nestjs/swagger';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
 
 @ApiTags('博客')
@@ -24,6 +24,8 @@ export class BlogController {
   @ApiOperation({ summary: 'posts', description: '参数{ skip：页数默认为0， limit：每页数量默认为10 }'})
   async getPosts(@Res() res, @Query() query: QueryType) {
     let { skip, limit } = query
+    skip = Number(skip)
+    limit = Number(limit)
     const Posts = await this.blogService.getPosts(skip, limit)
     return res.status(HttpStatus.OK).json(Posts)
   }

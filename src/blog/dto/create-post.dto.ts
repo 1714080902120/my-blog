@@ -1,4 +1,3 @@
-import { ApiProperty } from "@nestjs/swagger";
 
 export class CreatePostDTO {
   readonly title: string;
@@ -9,6 +8,6 @@ export class CreatePostDTO {
 }
 
 export class QueryType {
-  readonly skip: Number;
-  readonly limit: Number;
+  readonly skip: number;
+  readonly limit: number;
 }

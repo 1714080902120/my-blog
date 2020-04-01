@@ -6,7 +6,7 @@ import { BlogModule } from './blog/blog.module';
 @Module({
   imports: [
     // 连接数据库
-    MongooseModule.forRoot('mongodb://localhost/nest-blog', { useNewUrlParser: true, useUnifiedTopology: true }),
+    MongooseModule.forRoot('mongodb://localhost/nest-blog', { useNewUrlParser: true }),
     BlogModule,
   ],
   controllers: [AppController],
